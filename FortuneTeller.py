@@ -3,8 +3,9 @@ import random
 import time
 from datetime import date
 
-#Order of Functions
-#1 		- Display Time and Date
+
+	#Order of Functions
+	#1 		- Display Time and Date
 def getTimeAndDate():
 	t = time.localtime()
 	current_time = time.strftime("%H:%M:%S", t)
@@ -17,47 +18,60 @@ def getUsername():
 	print("Thank you "+ username)
 #3 		- Ask for User's Question
 def getUserQuestion():
+	global userQuestion
 	userQuestion = input("What is your question?")
 	print("You have asked: " + userQuestion)
 #4 		- Main Program
-def getAnswer(answerNumber):
-	if answerNumber == 1:
-		return 'It is certain'
-	elif answerNumber == 2:
-		return 'It is decidely so.'
-	elif answerNumber == 3:
-		return 'Yes.'
-	elif answerNumber == 4:
-		return 'Reply hazy, try again.'
-	elif answerNumber == 5:
-		return 'Ask again later.'
-	elif answerNumber == 6:
-		return 'Concentrate and ask again.'
-	elif answerNumber == 7:
-		return 'My replay is no.'
-	elif answerNumber == 8:
-		return 'Outlook not so good.'
-	elif answerNumber == 9:
-		return 'Very doubtful.'
-	elif answerNumber == 10:
-		return 'Hard No.'
-r = random.randint(1,10)
-answer = getAnswer(r)
-print(answer)
-
 #4.2 	- Collect random int
-#4.3 	- Display Answer based on int
+def getRandomNum():
+	answerNumber = random.randint(1,10)
+	if answerNumber == 1:
+		answerStatement = 'It is certain'
+	elif answerNumber == 2:
+		answerStatement = 'It is decidely so.'
+	elif answerNumber == 3:
+		answerStatement = 'Yes.'
+	elif answerNumber == 4:
+		answerStatement = 'Reply hazy, try again.'
+	elif answerNumber == 5:
+		answerStatement = 'Ask again later.'
+	elif answerNumber == 6:
+		answerStatement = 'Concentrate and ask again.'
+	elif answerNumber == 7:
+		answerStatement = 'My replay is no.'
+	elif answerNumber == 8:
+		answerStatement = 'Outlook not so good.'
+	elif answerNumber == 9:
+		answerStatement = 'Very doubtful.'
+	elif answerNumber == 10:
+		answerStatement = 'Hard No.'
+	r = (answerStatement)
+	
+	time.sleep(1)
+	print("Question:      "+ userQuestion)
+	print("Answer:      " + answerStatement)
+	print("  ")
+	print("  ")
+	print("  ")
 
 
-#4.4 	- Display original Question
-#5		- Ask to repeat? Y/N
-#6 		- If (N) End program gracefully
-#7 		- Wrap functions into main function
+	
 def Main():
-	getTimeAndDate()
-	getUsername()
 	getUserQuestion()
-	getAnswer()
+	print("	")
+	time.sleep(1)
+	print("...")
+	getRandomNum()
 
+getTimeAndDate()
+time.sleep(1)
+print("...")
+getUsername()
+print("	")
+time.sleep(1)
+print("...")
+r = input("How many times do you want to play? Type in appropriate number. ")
+i = 1
+while i <= int(r):
+	Main()
 
-Main()
