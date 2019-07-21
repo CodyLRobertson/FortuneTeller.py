@@ -2,6 +2,7 @@
 import random
 import time
 from datetime import date
+import sys
 
 
 	#Order of Functions
@@ -14,13 +15,13 @@ def getTimeAndDate():
 	print("Today's Date is", today)
 #2 		- Ask for user's name
 def getUsername():
-	username = input("What is your name?")
-	print("Thank you "+ username)
+	username = input("What is your name? ")
+	print("Thank you, "+ username + ".")
 #3 		- Ask for User's Question
 def getUserQuestion():
 	global userQuestion
-	userQuestion = input("What is your question?")
-	print("You have asked: " + userQuestion)
+	userQuestion = input("What is your question? ")
+	print("You have asked: " + '"'+userQuestion+'"')
 #4 		- Main Program
 #4.2 	- Collect random int
 def getRandomNum():
@@ -54,7 +55,20 @@ def getRandomNum():
 	print("  ")
 	print("  ")
 
+def creditsList():
+	print("Creator: Cody Robertson")
+	print("Github: https://bit.ly/2JH7uWC")
 
+def timeLapse():
+	print("Please Wait.")
+	time.sleep(1)
+	print("...")
+	time.sleep(1)
+	print("..")
+	time.sleep(1)
+	print(".")
+	time.sleep(1)
+	print("			")
 	
 def Main():
 	getUserQuestion()
@@ -62,16 +76,34 @@ def Main():
 	time.sleep(1)
 	print("...")
 	getRandomNum()
+def gameParamters():
+	r = input("How many times do you want to play? Type in appropriate number. ")
+	i = 0
+	while i <= int(r):
+		Main()
+		i = i+1
+		if i == int(r):
+			print("Thank you for playing.")
+			creditsList()
+			break
+def playAgainFunc():
+	playAgain = "y"
+	playAgain == input("Do you want to play again? Y/N?").lower()
+	if playAgain == "y".lower():
+		gameParamters()
+	elif playAgain == "n".lower():
+		sys.exit()
+	else:
+		sys.exit()
+
+
 
 getTimeAndDate()
-time.sleep(1)
-print("...")
+timeLapse()
 getUsername()
-print("	")
-time.sleep(1)
-print("...")
-r = input("How many times do you want to play? Type in appropriate number. ")
-i = 1
-while i <= int(r):
-	Main()
+timeLapse()
+gameParamters()
+
+
+
 
