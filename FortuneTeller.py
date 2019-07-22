@@ -103,6 +103,7 @@ timeLapse()
 getUsername()
 timeLapse()
 gameParamters()
+input("Press any key to end program. ")
 
 
 
