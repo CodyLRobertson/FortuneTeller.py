@@ -50,7 +50,7 @@ def getRandomNum():
 	
 	time.sleep(1)
 	print("Question:      "+ userQuestion)
-	print("Answer:      " + answerStatement)
+	print("Answer:      " + r)
 	print("  ")
 	print("  ")
 	print("  ")
